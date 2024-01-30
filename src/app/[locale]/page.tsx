@@ -8,11 +8,16 @@ export default async function Home() {
   const lang = getCurrentLocale();
   const data: Data = await getData(lang);
 
-  const playList = data?.data?.rows?.map((element) => ({
+  const filteredPlaylist = data.data.rows.filter(
+    (item) => item.media.length !== 0
+  );
+
+  const playList = filteredPlaylist?.map((element, index) => ({
     name: element?.langs[0]?.title,
     img: element?.imagePath,
     src: element?.media[0]?.filePath,
-    id: element?.id,
+    id: index + 1,
+    id_from_db: element.id,
   }));
 
   return (

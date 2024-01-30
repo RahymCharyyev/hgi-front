@@ -18,11 +18,13 @@ const PlayerContent = ({ playList, data }: any) => {
           <DiplomatCard
             data={data}
             handlePlayPause={handlePlayPause}
+            playlist={playList}
             isAudioPlaying={isAudioPlaying}
             selectedDiplomatId={selectedDiplomatId}
           />
           <AudioRecords
             data={data}
+            playlist={playList}
             handlePlayPause={handlePlayPause}
             isAudioPlaying={isAudioPlaying}
             selectedDiplomatId={selectedDiplomatId}

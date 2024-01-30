@@ -8,7 +8,7 @@ import './globals.css';
 const notoSans = Noto_Sans({ subsets: ['latin'], display: 'swap' });
 
 export const metadata: Metadata = {
-  title: 'HGI Türkmenistanyň meşhur diplomatlary',
+  title: 'Türkmenistanyň meşhur diplomatlary',
   description:
     'Türkmenistanyň meşhur we abraýly diplomatlaryna bagyşlanan ýörite sahypamyza hoş geldiňiz',
 };

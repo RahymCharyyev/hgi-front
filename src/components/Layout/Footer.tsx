@@ -29,7 +29,7 @@ export default async function Footer() {
         </div>
       </Link>
       <span className='md:text-sm'>
-        © {date.getFullYear()}. {t('allRighstReserved')}
+        © {date.getFullYear()}. {t('allRighstReserved')} Turkmenportal HJ
       </span>
     </footer>
   );

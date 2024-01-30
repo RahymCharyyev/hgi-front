@@ -49,6 +49,17 @@ export default async function DiplomatDetails({
             id: 1,
           },
         ]}
+        activeUI={{
+          artwork: true,
+          playButton: true,
+          prevNnext: true,
+          repeatType: true,
+          trackInfo: false,
+          trackTime: true,
+          volume: true,
+          volumeSlider: true,
+          progress: 'bar',
+        }}
         rootContainerProps={{
           colorScheme: 'light',
           width: '100%',

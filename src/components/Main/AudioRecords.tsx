@@ -2,12 +2,14 @@
 import { Data } from '@/api/types';
 import { useI18n } from '@/locales/client';
 import Image from 'next/image';
+import Link from 'next/link';
 
 type AudioRecordsProps = {
   data: Data;
   handlePlayPause: Function;
   isAudioPlaying: boolean;
   selectedDiplomatId: number;
+  playlist: any[];
 };
 
 const AudioRecords = ({
@@ -15,6 +17,7 @@ const AudioRecords = ({
   handlePlayPause,
   isAudioPlaying,
   selectedDiplomatId,
+  playlist,
 }: AudioRecordsProps) => {
   const t = useI18n();
 
@@ -22,18 +25,22 @@ const AudioRecords = ({
     return (
       <Image
         src={
-          isAudioPlaying && selectedDiplomatId === diplomatId
+          isAudioPlaying &&
+          selectedDiplomatId ===
+            playlist.find((el) => el.id_from_db === diplomatId).id
             ? './pause_icon.svg'
             : './play_icon.svg'
         }
         alt={
-          isAudioPlaying && selectedDiplomatId === diplomatId
+          isAudioPlaying &&
+          selectedDiplomatId ===
+            playlist.find((el) => el.id_from_db === diplomatId).id
             ? 'pause_icon'
             : 'play_icon'
         }
         width={50}
         height={50}
-        className='absolute top-[70%] left-[70%]'
+        className='absolute top-[70%] left-[65%]'
       />
     );
   };
@@ -47,24 +54,31 @@ const AudioRecords = ({
         {data.data.rows?.map((diplomat) => (
           <div key={diplomat.id}>
             {diplomat?.media?.[0] && (
-              <button
-                onClick={() => handlePlayPause(diplomat.id)}
-                className='relative flex flex-col gap-3 items-center'
-              >
+              <>
                 <div className='relative'>
-                  <Image
-                    className={`rounded-[5px] w-[250px] h-[250px]`}
-                    src={diplomat.imagePath}
-                    alt='diplomat image'
-                    width={250}
-                    height={250}
-                  />
-                  {renderPlayPauseIcon(diplomat.id)}
+                  <Link href={`/${diplomat.id}`}>
+                    <Image
+                      className={`rounded-[5px] w-[250px] h-[250px] hover:scale-105`}
+                      src={diplomat.imagePath}
+                      alt='diplomat image'
+                      width={250}
+                      height={250}
+                    />
+                  </Link>
+                  <button
+                    onClick={() =>
+                      handlePlayPause(
+                        playlist.find((el) => el.id_from_db === diplomat.id).id
+                      )
+                    }
+                  >
+                    {renderPlayPauseIcon(diplomat.id)}
+                  </button>
                 </div>
                 <h2 className={`text-xl font-semibold`}>
                   {diplomat.langs[0].title}
                 </h2>
-              </button>
+              </>
             )}
           </div>
         ))}

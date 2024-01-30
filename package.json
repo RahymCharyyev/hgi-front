@@ -11,6 +11,7 @@
   "dependencies": {
     "next": "14.1.0",
     "next-international": "^1.2.3",
+    "next-seo": "^6.4.0",
     "react": "^18",
     "react-dom": "^18",
     "react-modern-audio-player": "^1.4.0-rc.2",

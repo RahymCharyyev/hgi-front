@@ -14,6 +14,7 @@ export interface Row {
   imagePath: string;
   id: number;
   image: string;
+  key: string;
   langs: Lang[];
   media: Media[];
 }
