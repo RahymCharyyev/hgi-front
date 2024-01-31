@@ -2,11 +2,9 @@ import { getData } from '@/api/routes';
 import { Data } from '@/api/types';
 import { HeroSection } from '@/components/Main/HeroSection';
 import PlayerContent from '@/components/Main/PlayerContent';
-import { getCurrentLocale } from '@/locales/server';
 
 export default async function Home() {
-  const lang = getCurrentLocale();
-  const data: Data = await getData(lang);
+  const data: Data = await getData('en');
 
   const filteredPlaylist = data?.data?.rows?.filter(
     (item) => item?.media?.length !== 0

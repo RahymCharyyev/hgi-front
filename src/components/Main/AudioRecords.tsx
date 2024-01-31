@@ -28,8 +28,8 @@ const AudioRecords = ({
           isAudioPlaying &&
           selectedDiplomatId ===
             playlist.find((el) => el.id_from_db === diplomatId).id
-            ? './pause_icon.svg'
-            : './play_icon.svg'
+            ? '/pause_icon.svg'
+            : '/play_icon.svg'
         }
         alt={
           isAudioPlaying &&

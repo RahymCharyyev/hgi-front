@@ -1,12 +1,13 @@
-import { getI18n } from '@/locales/server';
+'use client';
 import Image from 'next/image';
 import React from 'react';
 import { Noto_Serif } from 'next/font/google';
+import { useI18n } from '@/locales/client';
 
 const notoSerif = Noto_Serif({ subsets: ['latin'], display: 'swap' });
 
 export const HeroSection = async () => {
-  const t = await getI18n();
+  const t = useI18n();
   return (
     <div className='flex flex-wrap gap-20 xl:justify-center xl:gap-8'>
       <div className='flex flex-col gap-8 max-w-[675px] xl:order-2 sm:max-w-[340px]'>

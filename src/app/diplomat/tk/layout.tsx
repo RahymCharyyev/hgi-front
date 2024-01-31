@@ -14,16 +14,15 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  params: { locale },
   children,
 }: Readonly<{
   params: { locale: string };
   children: React.ReactNode;
 }>) {
   return (
-    <html lang={locale}>
+    <html lang='tk'>
       <body className={`${notoSans.className} bg-background`}>
-        <I18nProviderClient locale={locale}>
+        <I18nProviderClient locale='tk'>
           <Header />
           {children}
           <Footer />

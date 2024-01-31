@@ -1,7 +1,6 @@
 import { getDataDetails } from '@/api/routes';
 import { Details } from '@/api/types';
 import Player from '@/components/Main/Player';
-import { getCurrentLocale } from '@/locales/server';
 import { Noto_Serif } from 'next/font/google';
 import Image from 'next/image';
 
@@ -12,8 +11,7 @@ export default async function DiplomatDetails({
 }: {
   params: { id: string };
 }) {
-  const lang = getCurrentLocale();
-  const data: Details = await getDataDetails(params.id, lang);
+  const data: Details = await getDataDetails(params.id, 'en');
 
   return (
     <main className='flex min-h-screen flex-col gap-[150px] justify-between py-[150px] px-[360px]  xl:px-[350px] lg:px-[200px] md:px-[50px] sm:gap-[80px] sm:py-[80px] xs:px-[10px]'>
