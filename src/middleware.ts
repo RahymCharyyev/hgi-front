@@ -4,6 +4,7 @@ import { NextRequest } from 'next/server';
 const I18nMiddleware = createI18nMiddleware({
   locales: ['tk', 'ru', 'en'],
   defaultLocale: 'tk',
+  urlMappingStrategy: 'rewrite',
 });
 
 export function middleware(request: NextRequest) {

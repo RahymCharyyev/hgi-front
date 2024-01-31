@@ -3,12 +3,11 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'http',
-        hostname: '192.168.137.41',
-        port: '3001',
+        protocol: 'https',
+        hostname: 'iirmfa.edu.tm',
       },
     ],
   },
 };
 
-export default nextConfig;
+module.exports = nextConfig;
