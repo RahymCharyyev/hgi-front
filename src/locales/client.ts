@@ -7,8 +7,13 @@ export const {
   I18nProviderClient,
   useCurrentLocale,
   useChangeLocale,
-} = createI18nClient({
-  tk: () => import('./tk'),
-  ru: () => import('./ru'),
-  en: () => import('./en'),
-});
+} = createI18nClient(
+  {
+    tk: () => import('./tk'),
+    ru: () => import('./ru'),
+    en: () => import('./en'),
+  },
+  {
+    basePath: '/diplomat',
+  }
+);

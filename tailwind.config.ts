@@ -10,7 +10,11 @@ const config: Config = {
     extend: {
       colors: {
         primary: '#27347A',
+        secondary: '#1677ff',
         background: '#F2F2F2',
+      },
+      backgroundImage: {
+        headerBg: "url('/diplomat/header_bg.webp')",
       },
     },
     screens: {

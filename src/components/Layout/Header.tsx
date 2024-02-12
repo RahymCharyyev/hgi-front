@@ -1,7 +1,11 @@
-import Image from 'next/image';
-import { getCurrentLocale, getI18n } from '../../locales/server';
-import Link from 'next/link';
+import { getCategories, getContent } from '@/api/routes';
+import { CategoriesResponse } from '@/types/categories';
+import { ContentResponse } from '@/types/content';
 import TimesNewRoman from 'next/font/local';
+import Image from 'next/image';
+import Link from 'next/link';
+import { getCurrentLocale } from '../../locales/server';
+import HamburgerMenu from '../HamburgerMenu';
 
 const times = TimesNewRoman({
   src: '../../fonts/times.ttf',
@@ -9,54 +13,61 @@ const times = TimesNewRoman({
 });
 
 export default async function Header() {
-  const t = await getI18n();
   const locale = getCurrentLocale();
+  const data: ContentResponse = await getContent(locale);
+  const categories: CategoriesResponse = await getCategories(locale);
+  const headerContent = data.data.find((item) => item.key === 'header');
+  const categoriesContent = categories.data.map((cat) => ({
+    id: cat.id,
+    name: cat.langs[0].name,
+  }));
+
   return (
-    <header className='bg-primary text-white flex justify-between items-center px-[360px] py-7 xl:px-[350px] lg:px-[200px] md:px-[50px] sm:flex-col sm:items-center sm:gap-y-3 xs:px-[10px]'>
-      <nav className='flex gap-8 xl:hidden'>
-        <Link href='/#diplomats'>{t('diplomats')}</Link>
-        <Link href='/#audio'>{t('audiorecords')}</Link>
-      </nav>
-      <Link href='/' className='flex gap-4 items-center justify-center'>
-        <Image
-          className='xl:w-[80px] xl:h-[80px]'
-          src='/logo.webp'
-          alt='logo of the university'
-          width={85}
-          height={85}
-        />
+    <header className='bg-headerBg bg-contain text-white flex justify-between items-center px-[360px] py-7 xl:px-[350px] lg:px-[200px] md:px-[50px] sm:flex-col sm:items-center sm:gap-y-3 xs:px-[10px]'>
+      <HamburgerMenu categories={categoriesContent} />
+      <Link
+        href={`/${locale}`}
+        className='flex gap-4 items-center justify-center'
+      >
+        {headerContent?.imagePath !== undefined && (
+          <Image
+            className='xl:w-[80px] xl:h-[80px]'
+            src={headerContent?.imagePath}
+            alt='logo of the university'
+            width={85}
+            height={85}
+          />
+        )}
         <div className={`${times.className} text-xl flex flex-col`}>
-          <span className='font-bold xl:text-base'>{t('universityName')}</span>
+          <span className='font-bold xl:text-base'>
+            {headerContent?.langs[0].title}
+          </span>
           <hr className='text-white' />
-          <span className='xl:text-base xl:max-w-[175px]'>{t('siteName')}</span>
+          <span className='max-w-[350px] xl:text-base xl:max-w-[175px]'>
+            {headerContent?.langs[0].text}
+          </span>
         </div>
       </Link>
-      <div className='flex flex-col items-end xl:gap-y-5 sm:items-center'>
-        <div className='flex gap-4 xl:text-sm sm:order-2'>
-          <Link
-            className={`${locale === 'tk' ? 'font-semibold' : 'font-light'}`}
-            href='/tk'
-          >
-            TKM
-          </Link>
-          <Link
-            className={`${locale === 'ru' ? 'font-semibold' : 'font-light'}`}
-            href='/ru'
-          >
-            РУС
-          </Link>
-          <Link
-            className={`${locale === 'en' ? 'font-semibold' : 'font-light'}`}
-            href='/en'
-          >
-            ENG
-          </Link>
-        </div>
-        <nav className='hidden xl:flex xl:gap-8 '>
-          <Link href='/#diplomats'>{t('diplomats')}</Link>
-          <Link href='/#audio'>{t('audiorecords')}</Link>
-        </nav>
-      </div>
+      <nav className='flex gap-4 xl:text-sm sm:order-2'>
+        <Link
+          className={`${locale === 'tk' ? 'font-semibold' : 'font-light'}`}
+          href='/tk'
+        >
+          TKM
+        </Link>
+        <Link
+          className={`${locale === 'ru' ? 'font-semibold' : 'font-light'}`}
+          href='/ru'
+        >
+          РУС
+        </Link>
+        <Link
+          className={`${locale === 'en' ? 'font-semibold' : 'font-light'}`}
+          href='/en'
+        >
+          ENG
+        </Link>
+      </nav>
     </header>
   );
 }

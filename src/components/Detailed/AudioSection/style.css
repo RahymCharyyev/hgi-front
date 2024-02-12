@@ -1,0 +1,9 @@
+.plyr {
+  --plyr-color-main: #27347a;
+
+  border-radius: 10px;
+}
+.plyr__volume input[type='range'] {
+  min-width: 30px;
+  max-width: 40px;
+}

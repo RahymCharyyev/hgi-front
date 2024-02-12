@@ -1,6 +1,7 @@
 import Footer from '@/components/Layout/Footer';
 import Header from '@/components/Layout/Header';
 import { I18nProviderClient } from '@/locales/client';
+import { AntdRegistry } from '@ant-design/nextjs-registry';
 import type { Metadata } from 'next';
 import { Noto_Sans } from 'next/font/google';
 import './globals.css';
@@ -24,9 +25,11 @@ export default function RootLayout({
     <html lang={locale}>
       <body className={`${notoSans.className} bg-background`}>
         <I18nProviderClient locale={locale}>
-          <Header />
-          {children}
-          <Footer />
+          <AntdRegistry>
+            <Header />
+            {children}
+            <Footer />
+          </AntdRegistry>
         </I18nProviderClient>
       </body>
     </html>
