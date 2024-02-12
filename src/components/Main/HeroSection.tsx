@@ -11,14 +11,14 @@ interface HeroContentProps {
 
 export const HeroSection = async ({ heroContent }: HeroContentProps) => {
   return (
-    <div className='flex flex-wrap gap-20 xl:justify-center xl:gap-8'>
-      <div className='flex flex-col gap-8 max-w-[675px] xl:order-2 sm:max-w-[340px]'>
+    <div className='flex flex-wrap justify-between 2xl:justify-center 2xl:gap-8'>
+      <div className='flex flex-col gap-8 w-[60%] xl:order-2 sm:max-w-[340px]'>
         <h1
-          className={`text-4xl leading-[50px] text-primary font-semibold xl:text-center ${notoSerif.className} sm:text-xl`}
+          className={`text-4xl leading-[50px] text-primary font-semibold 2xl:text-center ${notoSerif.className} sm:text-xl`}
         >
           {heroContent?.langs[0].title}
         </h1>
-        <span className='xl:text-center sm:text-sm'>
+        <span className='2xl:text-center sm:text-sm'>
           {heroContent?.langs[0].text}
         </span>
       </div>

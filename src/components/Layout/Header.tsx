@@ -24,7 +24,9 @@ export default async function Header() {
 
   return (
     <header className='bg-headerBg bg-contain text-white flex justify-between items-center px-[360px] py-7 xl:px-[350px] lg:px-[200px] md:px-[50px] sm:flex-col sm:items-center sm:gap-y-3 xs:px-[10px]'>
-      <HamburgerMenu categories={categoriesContent} />
+      <div className='sm:hidden'>
+        <HamburgerMenu categories={categoriesContent} />
+      </div>
       <Link
         href={`/${locale}`}
         className='flex gap-4 items-center justify-center'
@@ -43,12 +45,15 @@ export default async function Header() {
             {headerContent?.langs[0].title}
           </span>
           <hr className='text-white' />
-          <span className='max-w-[350px] xl:text-base xl:max-w-[175px]'>
+          <span className='max-w-[350px] xl:text-base xl:max-w-[275px]'>
             {headerContent?.langs[0].text}
           </span>
         </div>
       </Link>
-      <nav className='flex gap-4 xl:text-sm sm:order-2'>
+      <div className='flex gap-4 items-center xl:text-sm sm:order-2'>
+        <div className='hidden sm:block'>
+          <HamburgerMenu categories={categoriesContent} />
+        </div>
         <Link
           className={`${locale === 'tk' ? 'font-semibold' : 'font-light'}`}
           href='/tk'
@@ -67,7 +72,7 @@ export default async function Header() {
         >
           ENG
         </Link>
-      </nav>
+      </div>
     </header>
   );
 }

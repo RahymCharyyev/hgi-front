@@ -15,9 +15,22 @@ const carouselSettings = {
   slidesToShow: 3,
   slidesToScroll: 1,
   draggable: true,
-  style: {
-    width: '1220px',
-  },
+  responsive: [
+    {
+      breakpoint: 1600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+      },
+    },
+    {
+      breakpoint: 590,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      },
+    },
+  ],
 };
 
 interface CardsCarouselProps {

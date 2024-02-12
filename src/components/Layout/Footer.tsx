@@ -19,7 +19,7 @@ export default async function Footer() {
   const headerContent = data.data.find((item) => item.key === 'header');
 
   return (
-    <footer className='bg-headerBg bg-contain text-white flex justify-between items-end px-[360px] py-7  lg:px-[200px] md:px-[50px] sm:flex-col sm:items-center sm:gap-y-3 xs:px-[10px]'>
+    <footer className='bg-headerBg bg-contain text-white flex justify-between items-end px-[360px] py-7 lg:px-[200px] md:px-[50px] sm:flex-col sm:items-center sm:gap-y-3 xs:px-[10px]'>
       <Link
         href={`/${locale}`}
         className='flex gap-4 items-center justify-center'
@@ -38,7 +38,7 @@ export default async function Footer() {
             {headerContent?.langs[0].title}
           </span>
           <hr className='text-white' />
-          <span className='max-w-[350px] xl:text-base xl:max-w-[175px]'>
+          <span className='max-w-[350px] xl:text-base xl:max-w-[275px]'>
             {headerContent?.langs[0].text}
           </span>
         </div>

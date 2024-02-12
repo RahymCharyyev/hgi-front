@@ -26,7 +26,7 @@ const HamburgerMenu = ({ categories }: CategoriesProps) => {
   return (
     <>
       <Image
-        className='hover:cursor-pointer'
+        className='hover:cursor-pointer md:w-[20px] md:h-[15px]'
         onClick={showDrawer}
         src={HamburgerIcon}
         alt='hamburger icon'
@@ -34,6 +34,7 @@ const HamburgerMenu = ({ categories }: CategoriesProps) => {
         height={22}
       />
       <Drawer
+        className='sm:max-w-[250px]'
         title={t('sections')}
         placement='left'
         closable={false}
@@ -41,10 +42,10 @@ const HamburgerMenu = ({ categories }: CategoriesProps) => {
         open={open}
         key='left'
       >
-        <nav className='flex flex-col gap-10 '>
+        <nav className='flex flex-col gap-10 sm:gap-5'>
           {categories.map((item) => (
             <Link
-              className='text-primary font-bold uppercase'
+              className='text-primary font-bold uppercase sm:text-xs'
               key={item.id}
               href={`/categories/${item.id}`}
             >

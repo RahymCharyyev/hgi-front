@@ -18,6 +18,7 @@ const config: Config = {
       },
     },
     screens: {
+      '2xl': { max: '1720px' },
       xl: { max: '1510px' },
       lg: { max: '1310px' },
       md: { max: '1020px' },
