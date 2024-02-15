@@ -11,7 +11,7 @@ interface HeroContentProps {
 
 export const HeroSection = async ({ heroContent }: HeroContentProps) => {
   return (
-    <div className='flex flex-wrap justify-between 2xl:justify-center 2xl:gap-8'>
+    <div className='flex flex-wrap justify-between 2xl:justify-center 2xl:gap-8 max-w-[1130px]'>
       <div className='flex flex-col gap-8 w-[60%] xl:order-2 sm:max-w-[340px]'>
         <h1
           className={`text-4xl leading-[50px] text-primary font-semibold 2xl:text-center ${notoSerif.className} sm:text-xl`}

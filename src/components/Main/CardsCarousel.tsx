@@ -53,16 +53,29 @@ const CardsCarousel = ({ categories, t, locale }: CardsCarouselProps) => {
             </h2>
             <Image src={ArrowRight} alt='arrow right' width={23} height={23} />
           </Link>
-          <Carousel {...carouselSettings}>
-            {item.topics.map((topic) => (
-              <CarouselItem
-                key={topic.id}
-                topic={topic}
-                t={t}
-                locale={locale}
-              />
-            ))}
-          </Carousel>
+          {item.topics.length > 2 ? (
+            <Carousel {...carouselSettings}>
+              {item.topics.map((topic) => (
+                <CarouselItem
+                  key={topic.id}
+                  topic={topic}
+                  t={t}
+                  locale={locale}
+                />
+              ))}
+            </Carousel>
+          ) : (
+            <div className='flex gap-20'>
+              {item.topics.map((topic) => (
+                <CarouselItem
+                  key={topic.id}
+                  topic={topic}
+                  t={t}
+                  locale={locale}
+                />
+              ))}
+            </div>
+          )}
         </div>
       ))}
     </>

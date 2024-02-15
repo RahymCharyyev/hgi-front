@@ -13,15 +13,15 @@ const nextConfig = {
   },
   images: {
     remotePatterns: [
-      // {
-      //   protocol: 'https',
-      //   hostname: 'iirmfa.edu.tm',
-      // },
       {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '3001',
+        protocol: 'https',
+        hostname: 'iirmfa.edu.tm',
       },
+      // {
+      //   protocol: 'http',
+      //   hostname: 'localhost',
+      //   port: '3001',
+      // },
     ],
   },
 };
