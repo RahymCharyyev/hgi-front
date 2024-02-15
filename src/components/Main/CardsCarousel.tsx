@@ -65,7 +65,7 @@ const CardsCarousel = ({ categories, t, locale }: CardsCarouselProps) => {
               ))}
             </Carousel>
           ) : (
-            <div className='flex gap-20'>
+            <div className='flex flex-wrap items-center gap-20'>
               {item.topics.map((topic) => (
                 <CarouselItem
                   key={topic.id}
