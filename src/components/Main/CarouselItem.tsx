@@ -26,22 +26,20 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ topic, t, locale }) => {
           className='w-full h-full object-cover object-top'
         />
       </div>
-      <div className='px-5 py-6 h-[250px] flex flex-col justify-between md:px-2 md:py-3 md:h-[200px]'>
+      <div className='px-2 py-2 h-[250px] flex flex-col justify-between md:h-[200px]'>
         <h2
-          className={`font-semibold text-primary text-xl ${notoSerif.className} md:text-base`}
+          className={`font-semibold text-primary text-lg ${notoSerif.className} md:text-base`}
         >
           {topic.langs[0].title}
         </h2>
-        <span className='font-medium text-sm md:text-xs'>
-          {topic.langs[0].subTitle}
-        </span>
-        <div className='flex flex-col gap-5'>
+        <span className='font-medium text-xs'>{topic.langs[0].subTitle}</span>
+        <div className='flex flex-col gap-2'>
           <hr />
           <Link
             className='flex gap-2 text-primary font-semibold'
             href={`/${locale}/topic/${topic.id}`}
           >
-            <span>{t('knowMore')}</span>
+            <span className='text-xs'>{t('knowMore')}</span>
             <Image
               className='md:w-[40px]'
               src='/diplomat/arrow.svg'

@@ -22,11 +22,8 @@ const DetailedComponent: React.FC<DetailedComponentProps> = ({ topic }) => {
       <h1
         className={`mb-5 ${notoSerif.className} text-3xl text-primary font-semibold md:text-2xl sm:text-xl`}
       >
-        {topic.title}
+        {topic.langs[0].title}
       </h1>
-      <h2 className='mb-10 text-2xl font-semibold max-w-[650px] sm:text-lg'>
-        {topic.subTitle}
-      </h2>
       <span
         className='xs:text-sm'
         dangerouslySetInnerHTML={{
