@@ -1,9 +1,9 @@
 import { getContent } from '@/api/routes';
 import { ContentResponse } from '@/types/content';
 import TimesNewRoman from 'next/font/local';
-import Image from 'next/image';
 import Link from 'next/link';
 import { getCurrentLocale, getI18n } from '../../locales/server';
+import { Image } from 'antd';
 
 const times = TimesNewRoman({
   src: '../../fonts/times.ttf',
@@ -26,6 +26,7 @@ export default async function Footer() {
       >
         {headerContent?.imagePath !== undefined && (
           <Image
+            preview={false}
             className='xl:w-[80px] xl:h-[80px]'
             src={headerContent?.imagePath}
             alt='logo of the university'

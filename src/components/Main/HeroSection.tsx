@@ -1,7 +1,7 @@
-import Image from 'next/image';
 import React from 'react';
 import { Noto_Serif } from 'next/font/google';
 import { Content } from '@/types/content';
+import { Image } from 'antd';
 
 const notoSerif = Noto_Serif({ subsets: ['latin'], display: 'swap' });
 
@@ -24,12 +24,12 @@ export const HeroSection = async ({ heroContent }: HeroContentProps) => {
       </div>
       {heroContent?.imagePath !== undefined && (
         <Image
+          preview={false}
           className='xl:w-[600px] xl:h-[330px] sm:w-[340px] sm:h-[275px]'
           src={heroContent?.imagePath}
           alt='HGI photo'
           width={400}
           height={280}
-          priority
         />
       )}
     </div>

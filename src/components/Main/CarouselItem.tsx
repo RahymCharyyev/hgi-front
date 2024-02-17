@@ -1,8 +1,9 @@
 import React from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Topic } from '@/types/categories';
 import { Noto_Serif } from 'next/font/google';
+import { Image as AntdImage } from 'antd';
 const notoSerif = Noto_Serif({ subsets: ['latin'], display: 'swap' });
 
 interface CarouselItemProps {
@@ -18,7 +19,8 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ topic, t, locale }) => {
       className='max-w-[340px] h-[500px] bg-white rounded-xl flex flex-col items-end cursor-grab md:max-w-[240px] md:h-[400px]'
     >
       <div className='w-[340px] h-[250px] rounded-lg overflow-hidden md:w-[240px] md:h-[200px]'>
-        <Image
+        <AntdImage
+          preview={false}
           src={topic.imagePath}
           alt={topic.langs[0].title}
           width={340}
